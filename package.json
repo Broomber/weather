@@ -2,10 +2,6 @@
   "name": "weather",
   "version": "0.1.0",
   "private": true,
-  "repository": {
-    "type": "",
-    "url": "https://github.com/Broomber/weather"
-  },
   "author": "Bondarenko Yuriy",
   "homepage": "https://github.com/Broomber/weather",
   "dependencies": {
