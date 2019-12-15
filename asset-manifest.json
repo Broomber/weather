@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/Broomber/weather/static/css/main.bce82d78.chunk.css",
+    "main.js": "/Broomber/weather/static/js/main.415039a6.chunk.js",
+    "main.js.map": "/Broomber/weather/static/js/main.415039a6.chunk.js.map",
+    "runtime-main.js": "/Broomber/weather/static/js/runtime-main.d96d6158.js",
+    "runtime-main.js.map": "/Broomber/weather/static/js/runtime-main.d96d6158.js.map",
+    "static/js/2.af56837e.chunk.js": "/Broomber/weather/static/js/2.af56837e.chunk.js",
+    "static/js/2.af56837e.chunk.js.map": "/Broomber/weather/static/js/2.af56837e.chunk.js.map",
+    "index.html": "/Broomber/weather/index.html",
+    "precache-manifest.eccd8d332db86ac5e89c5a05c86532e7.js": "/Broomber/weather/precache-manifest.eccd8d332db86ac5e89c5a05c86532e7.js",
+    "service-worker.js": "/Broomber/weather/service-worker.js",
+    "static/css/main.bce82d78.chunk.css.map": "/Broomber/weather/static/css/main.bce82d78.chunk.css.map",
+    "static/js/2.af56837e.chunk.js.LICENSE": "/Broomber/weather/static/js/2.af56837e.chunk.js.LICENSE",
+    "static/media/index.scss": "/Broomber/weather/static/media/location.eb1241e2.svg",
+    "static/media/cloud.8c4c2f61.svg": "/Broomber/weather/static/media/cloud.8c4c2f61.svg",
+    "static/media/partly_cloudy.877bfaf3.svg": "/Broomber/weather/static/media/partly_cloudy.877bfaf3.svg",
+    "static/media/rain.64cfe69f.svg": "/Broomber/weather/static/media/rain.64cfe69f.svg",
+    "static/media/storm.45dbd80c.svg": "/Broomber/weather/static/media/storm.45dbd80c.svg",
+    "static/media/sun.8ce7777b.svg": "/Broomber/weather/static/media/sun.8ce7777b.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d96d6158.js",
+    "static/js/2.af56837e.chunk.js",
+    "static/css/main.bce82d78.chunk.css",
+    "static/js/main.415039a6.chunk.js"
+  ]
+}
