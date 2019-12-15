@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "author": "Bondarenko Yuriy",
-  "homepage": "https://github.com/Broomber/weather",
+  "homepage": "http://broomber.github.io/weather",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.3",
     "@testing-library/user-event": "^7.1.2",
-    "gh-pages": "^2.1.1",
     "normalize-scss": "^7.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
@@ -37,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "json-loader": "^0.5.7",
     "node-sass": "^4.13.0",
     "react-scripts": "^3.3.0",
