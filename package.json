@@ -4,10 +4,10 @@
   "private": true,
   "repository": {
     "type": "",
-    "url": "https://github.com/Broomber/weather-app"
+    "url": "https://github.com/Broomber/weather"
   },
   "author": "Bondarenko Yuriy",
-  "homepage": "https://github.com/Broomber/weather-app",
+  "homepage": "https://github.com/Broomber/weather",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.3",
