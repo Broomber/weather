@@ -1,0 +1,53 @@
+@import '../Settings/Settings.scss';
+@import '../BasicInfo/BasicInfo.scss';
+@import '../ExtraInfo/ExtraInfo.scss';
+@import '../ExtraInfoItem/ExtraInfoItem.scss';
+@import '../TempSwitcherBtn/TempSwitcherBtn.scss';
+@import '../SearchField/SearchField.scss';
+
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato";
+  @include font-normal;
+}
+
+.weather {
+  color: white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: $bg-rain;
+  transition: background-color $normal;
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 40px 20px;
+
+    @include sm() {
+      padding: 7.5% 10% 12.5% 10%;
+    }
+
+    @include md() {
+      padding: 7.5% 10% 10% 10%;
+    }
+
+    @include lg() {
+      padding: 75px 100px 125px 100px;
+    }
+  }
+}
+
+.location {
+  height: 100px;
+}

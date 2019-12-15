@@ -1,0 +1,44 @@
+.search-field {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  &__inner {
+    position: relative;
+    max-width: 580px;
+    width: 100%;
+  }
+
+  &__input {
+    font-size: 15px;
+    line-height: 16px;
+    width: 100%;
+    padding: 17px 18px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid white;
+
+    @include md {
+      font-size: 30px;
+      line-height: 32px;
+      padding: 27px 28px;
+    }
+  }
+
+  &__btn {
+    @include reset-btn;
+    position: absolute;
+    right: 0;
+    font-size: 15px;
+    line-height: 16px;
+    padding: 18px;
+    color: #1086FF;
+
+    @include md {
+      font-size: 30px;
+      line-height: 32px;
+      padding: 28px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.hidden {
+  display: none;
+}
+.hidden-xl {
+  @include hidden-xl;
+}
+.hidden-lg {
+  @include hidden-lg;
+}
+.hidden-md {
+  @include hidden-md;
+}
+.hidden-sm {
+  @include hidden-sm;
+}
+.hidden-xs {
+  @include hidden-xs;
+}
+
+.visible {
+  @include visible;
+}
+.visible-xl {
+  @include visible-xl;
+}
+.visible-lg {
+  @include visible-lg;
+}
+.visible-md {
+  @include visible-md;
+}
+.visible-sm {
+  @include visible-sm;
+}
+.visible-xs {
+  @include visible-xs
+}

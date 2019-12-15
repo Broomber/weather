@@ -1,0 +1,350 @@
+//========================================
+// Mixins
+//========================================
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin hidden {
+  display: none;
+}
+@mixin hidden-xs {
+  @media (min-width: $xs) {
+    display: none;
+  }
+}
+@mixin hidden-sm {
+  @media (min-width: $sm) {
+    display: none;
+  }
+}
+@mixin hidden-md {
+  @media (min-width: $md) {
+    display: none;
+  }
+}
+@mixin hidden-lg {
+  @media (min-width: $lg) {
+    display: none;
+  }
+}
+@mixin hidden-xl {
+  @media (min-width: $xl) {
+    display: none;
+  }
+}
+
+
+@mixin visible {
+  display: block;
+}
+@mixin visible-xs {
+  @media (min-width: $xs) {
+    display: block;
+  }
+}
+@mixin visible-sm {
+  @media (min-width: $sm) {
+    display: block;
+  }
+}
+@mixin visible-md {
+  @media (min-width: $md) {
+    display: block;
+  }
+}
+@mixin visible-lg {
+  @media (min-width: $lg) {
+    display: block;
+  }
+}
+@mixin visible-xl {
+  @media (min-width: $xl) {
+    display: block;
+  }
+}
+
+@mixin small {
+  font-size: 75%;
+}
+
+@mixin no-wrap {
+  white-space: nowrap;
+}
+
+@mixin styled-list {
+  padding-left: 2em;
+  list-style: none;
+
+  li {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url('../img/icons/bullit.png');
+    }
+  }
+}
+
+@mixin col-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: none !important;
+}
+
+/* Compile to: .col-sm-1 { float: left; width: 8.33333%; } etc. */
+$i: $columns;
+@while $i > 0 {
+  .col-xs-#{$i} { 
+    width: span($i);
+    float: left;
+  }
+  .col-sm-#{$i} {
+    @media (min-width: $sm) {
+      width: span($i);
+      float: left;
+    }
+  }
+  .col-md-#{$i} {
+    @media (min-width: $md) {
+      width: span($i);
+      float: left;
+    }
+  }
+  .col-lg-#{$i} {
+    @media (min-width: $lg) {
+      width: span($i);
+      float: left;
+    }
+  }
+  .col-xl-#{$i} {
+    @media (min-width: $xl) {
+      width: span($i);
+      float: left;
+    }
+  }
+  $i: $i - 1;
+}
+// Center alighned flex-element
+// Container
+@mixin center-c {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+// Block
+@mixin center-b {
+  margin: auto;
+}
+
+/* ================================
+
+  mixin set!!!
+
+  INPUT (На входе):
+
+  .class {
+    @include set(font-size , (14px, 18px, 22px, 26px));
+  }
+  ================================
+
+ OUTPUT (На выходе):
+
+ .class {
+    font-size: 14px;
+
+    @media(min-width: $sm) ax{
+      font-size: 18px;
+    }
+
+    @media(min-width: $md) {
+      font-size: 22px;
+    }
+
+    @media(min-width: $lg) {
+      font-size: 26px;
+    }
+ }
+ ================================ */
+
+@mixin set($property, $value) {
+  @if type-of($value) == 'list' {
+    @for $i from 1 through length($value) {
+      @if $i == 1 {
+        #{$property}: nth($value, $i);
+      } @else {
+        $c: $i - 1;
+        $screen: nth($set-mq, $c);
+        @media (max-width: $screen) {
+          #{$property}: nth($value, $i);
+        }
+      }
+    }
+  } @else {
+    #{$property}: $value;
+  }
+}
+
+
+// Mixins for fast set media-query rules
+
+@mixin xs() {
+  @media screen and (min-width: #{$xs}) {
+    @content;
+  }
+}@mixin sm() {
+  @media screen and (min-width: #{$sm}) {
+    @content;
+  }
+}
+@mixin md() {
+  @media screen and (min-width: #{$md}) {
+    @content;
+  }
+}
+@mixin lg() {
+  @media screen and (min-width: #{$lg}) {
+    @content;
+  }
+}
+@mixin xl() {
+  @media screen and (min-width: #{$xl}) {
+    @content;
+  }
+}
+
+
+
+@mixin xs-max() {
+  @media screen and (max-width: #{$xs-max}) {
+    @content;
+  }
+}@mixin sm-max() {
+  @media screen and (max-width: #{$sm-max}) {
+    @content;
+  }
+}
+@mixin md-max() {
+  @media screen and (max-width: #{$md-max}) {
+    @content;
+  }
+}
+@mixin lg-max() {
+  @media screen and (max-width: #{$lg-max}) {
+    @content;
+  }
+}
+@mixin xl-max() {
+  @media screen and (max-width: #{$xl-max}) {
+    @content;
+  }
+}
+
+
+//  INPUT
+// @include sm() {
+//   color: green;
+// }
+
+//  OUTPUT
+// @media screen and (max-width: 767px) {
+//   color: green;
+// }
+
+
+
+@mixin sm-only() {
+  @media screen and (max-width: #{$sm-max}) {
+    @content;
+  }
+}
+@mixin md-only() {
+  @media screen and (min-width: #{$md}) and (max-width: #{$lg-max}) {
+    @content;
+  }
+}
+@mixin lg-only() {
+  @media screen and (min-width: #{$lg}) and (max-width: #{$xl-max})  {
+    @content;
+  }
+}
+@mixin max-only() {
+  @media screen and (min-width: #{$xl}) {
+    @content;
+  }
+}
+
+
+// Absolute positioning
+@mixin abs {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@mixin bg($path: '', $size: contain, $position: center) {
+  background-image: url('#{$path}');
+  background-size: $size;
+  background-position: $position;
+  background-repeat: no-repeat;
+}
+
+@mixin overlay($opacity: 0.5, $color: black) {
+  @include abs;
+  background-color: $color;
+  opacity: $opacity;
+}
+
+@mixin reset-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin reset-btn {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+@mixin flex-wrapper ($direction: row) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $direction;
+}
+
+
+@mixin flex($grow: 0, $shrink: 0, $width: auto) {
+  flex: $grow $shrink $width;
+  @if ($width == auto or $width == 0) {
+    max-width: 100%;
+  } @else {
+    max-width: $width;
+  }
+}
+
+@mixin pp-r {
+  @include set(padding-right, $container);
+}
+
+@mixin pp-l {
+   @include set(padding-left, $container);
+}

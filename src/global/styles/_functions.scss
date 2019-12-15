@@ -1,0 +1,11 @@
+// Function returned percentage of entered args 
+// regarding total site columns
+@function w($args) {
+ @return percentage($args / $columns);  
+}
+
+// Function returned percentage of entered args 
+// regarding entered columns
+@function w-of($args, $cols) {
+ @return percentage($args / $cols);  
+}

@@ -1,0 +1,31 @@
+.extra-info {
+  display: flex;
+
+  &__list {
+    margin: -15px -10px;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include md() {
+      margin: -15px;
+    }
+
+    @include lg() {
+      margin: -25px -15px;
+      flex: 1 1 auto;
+    }
+  }
+  &__item {
+    padding: 15px 10px;
+    @include flex(0, 0, 50%);
+
+    @include md() {
+      padding: 15px;
+    }
+
+    @include lg() {
+      padding: 25px 15px;
+      @include flex(1, 1, auto);
+    }
+  }
+}

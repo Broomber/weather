@@ -1,0 +1,22 @@
+@mixin font-normal {
+  color: white;
+  font-size: 18px;
+  line-height: 22px;
+
+  @include md() {
+    font-size: 25px;
+    line-height: 30px;
+  }
+}
+
+@mixin font-small {
+  color: white;
+  font-size: 15px;
+  line-height: 18px;
+  opacity: 0.6;
+
+  @include md() {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

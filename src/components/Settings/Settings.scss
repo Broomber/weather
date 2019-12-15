@@ -1,0 +1,70 @@
+.settings {
+  position: relative;
+  height: 68px;
+
+  @include md() {
+    height: 100px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: -10px;
+  }
+
+  &__item {
+    padding: 10px;
+  }
+}
+
+.settings._search-open {
+  .settings__row {
+    display: none;
+  }
+  .search-field {
+    display: block;
+  }
+}
+
+.current-city {
+  font-size: 30px;
+  line-height: 36px;  
+
+  @include md() {
+    font-size: 50px;
+    line-height: 60px;
+  }
+}
+
+.settings-btn {
+  @include reset-btn;
+  @include font-small;
+  transition: opacity $fast;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  &._by-location {
+    position: relative;
+    padding-left: 1.5em;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -0.25em;
+      top: -0.25em;
+      height: 1.7em;
+      width: 1.7em;
+      background-image: url('location.svg');
+      background-size: 100%;
+      background-position: center;
+    }
+  }
+}
+

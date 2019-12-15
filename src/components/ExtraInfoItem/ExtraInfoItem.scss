@@ -1,0 +1,15 @@
+.extra-info-part {
+
+  &__title {
+    padding-bottom: 5px;
+    @include font-small;
+
+    @include lg() {
+      padding-bottom: 15px;
+    }
+  }
+
+  &__value {
+    @include font-normal;
+  }
+}
