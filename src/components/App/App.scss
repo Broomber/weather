@@ -46,6 +46,13 @@ body {
       padding: 75px 100px 125px 100px;
     }
   }
+
+  ._loading {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .location {

@@ -4,32 +4,29 @@ import ExtraInfoItem from '../ExtraInfoItem/ExtraInfoItem.js';
 class ExtraInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      windDirection: this.windDirection(this.props.data.wind.deg)
-    };
   }
 
-  windDirection(deg) {
-    let windDirection;
+  getWindDirection(deg) {
+    let direction;
 
-    if(0 < deg && deg <= 90) {      
-      windDirection = "северный";
-    } else if (90 < deg && deg <= 180) {
-      windDirection = "восточный";
-    } else if (180 < deg && deg <= 270) {
-      windDirection = "южный";
-    } else {
-      windDirection = "западный";
+    if(deg > 303.75 || deg <= 56.25) {
+      direction = "северный";
+    } else if (deg > 56.25 && deg <= 146.25) {
+      direction = "восточный";
+    } else if (deg > 146.25 && deg <= 236.25) {
+      direction = "южный";
+    } else if (deg > 236.25 && deg <= 303.75) {
+      direction = "западный";
     }
 
-    return windDirection;
+    return direction;
   }
 
   render() {
-    const pressure = this.props.data.main.pressure;
+    const pressure = Math.round(this.props.data.main.pressure * 0.750062);
     const humidity = this.props.data.main.humidity;
     const windSpeed = this.props.data.wind.speed;
-    const windDirection = this.state.windDirection;
+    const windDirection = this.getWindDirection(this.props.data.wind.deg);
 
     return (
       <div className="extra-info">

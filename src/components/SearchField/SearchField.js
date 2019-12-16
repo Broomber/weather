@@ -3,22 +3,36 @@ import React from 'react';
 class SearchField extends React.Component {  
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {city: ''};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleClick(e) {
-    this.props.onSearchBtnClick(this.props.searchOpen);
+  handleChange(e) {
+    this.setState({city: e.target.value});
+  }
+
+  handleSubmit(e) {
+    this.props.onCityChange(this.state.city);
+    e.preventDefault();
   }
 
   render() {
     return (
       <div className="search-field">
         <div className="search-field__inner">
-          <input class="search-field__input" placeholder={this.props.city} />
-          <button
-            className="search-field__btn"
-            onClick = {this.handleClick}
-              >OK</button>
+          <form onSubmit={this.handleSubmit}>
+            <input 
+              className="search-field__input"
+              type="text" 
+              placeholder = "Город"
+              value = {this.state.city} 
+              onChange = {this.handleChange} />
+            <input 
+              className="search-field__btn" 
+              type="submit" 
+              value="OK" />
+          </form>
         </div>        
       </div>
     );

@@ -8,77 +8,67 @@ import { ReactComponent as Storm } from './icons/storm.svg';
 class BasicInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      weatherInfo: this.weatherInfo(this.props.data.weather[0].main)
-    };
   }
 
-  weatherInfo(weatherCode) {
+  getWeatherInfo(weatherCode) {   
     let weatherInfo = {};
     weatherCode = weatherCode.toLowerCase();
 
     switch (weatherCode) {
-      case "clear sky":
-        weatherInfo.weatherDesc = "Солнечно";
-        weatherInfo.weatherIcon = <Sun />;
-        break;
-      case "few clouds":
-        weatherInfo.weatherDesc = "Переменная облачность";
-        weatherInfo.weatherIcon = <PartlyCloudy />;
-        break;
-      case "scattered clouds":
+      case "clouds":
         weatherInfo.weatherDesc = "Облачно";
         weatherInfo.weatherIcon = <Cloud />;
         break;
       case "rain":
         weatherInfo.weatherDesc = "Дождь";
         weatherInfo.weatherIcon = <Rain />;
+      case "drizzle":
+        weatherInfo.weatherDesc = "Мелкий дождь";
+        weatherInfo.weatherIcon = <Rain />;
         break;
+      case "snow":
+        weatherInfo.weatherDesc = "Снег";
+        weatherInfo.weatherIcon = <Rain />;
       case "thunderstorm":
         weatherInfo.weatherDesc = "Гроза";
         weatherInfo.weatherIcon = <Sun />;
         break;
+      case "сlear":
       default:        
         weatherInfo.weatherDesc = "Солнечно";
-        weatherInfo.weatherIcon = <Storm />;
+        weatherInfo.weatherIcon = <Sun />;
         break;
     }
 
     return weatherInfo;
   }
 
-  toCelsius(fahrenheit) {
-    return (fahrenheit - 32) * 5 / 9;
-  }
+  getTemperature(scale, temp) {    
+    let temperature;
 
-  toFahrenheit(celsius) {
-    return (celsius * 9 / 5) + 32;
-  }
-
-  render() {
-    const weatherIcon = this.state.weatherInfo.weatherIcon;
-    const weatherDesc = this.state.weatherInfo.weatherDesc;
-    const tempScale = this.props.scale;
-    let temperature = this.props.data.main.temp;
-
-    switch (tempScale) {
-      case 'c':
-        break;
+    switch (scale) {
       case 'f':
-        temperature = this.toFahrenheit(temperature);
+        temperature = Math.round((temp - 273.15) * 9 / 5 + 32);
         break;
+      case 'c':
       default:
+        temperature = Math.round(temp - 273.15);
         break;
     }
 
-    temperature = Math.round(temperature);
+    return temperature;
+  }
+
+  render() {
+    const weatherInfo = this.getWeatherInfo(this.props.data.weather[0].main);
+    const temperature = this.getTemperature(this.props.scale, this.props.data.main.temp);
 
     return (
       <div className="basic-info">
         <div className="basic-info__inner">
           <div className="basic-info__row">
             <div className="weather-icon">
-              {weatherIcon}
+              {weatherInfo.weatherIcon}
             </div>
             <div className="weather-temp">
               {temperature}
@@ -86,7 +76,7 @@ class BasicInfo extends React.Component {
           </div>
           <div className="basic-info__row">
             <div className="weather-desc">
-              {weatherDesc}
+              {weatherInfo.weatherDesc}
             </div>
           </div>
         </div>
