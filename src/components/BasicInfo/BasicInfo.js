@@ -1,15 +1,12 @@
 import React from 'react';
 import { ReactComponent as Sun } from './icons/sun.svg';
-import { ReactComponent as PartlyCloudy } from './icons/partly_cloudy.svg';
+// import { ReactComponent as PartlyCloudy } from './icons/partly_cloudy.svg';
 import { ReactComponent as Cloud } from './icons/cloud.svg';
 import { ReactComponent as Rain } from './icons/rain.svg';
 import { ReactComponent as Storm } from './icons/storm.svg';
 
 class BasicInfo extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   getWeatherInfo(weatherCode) {   
     let weatherInfo = {};
     weatherCode = weatherCode.toLowerCase();
@@ -22,6 +19,7 @@ class BasicInfo extends React.Component {
       case "rain":
         weatherInfo.weatherDesc = "Дождь";
         weatherInfo.weatherIcon = <Rain />;
+        break;
       case "drizzle":
         weatherInfo.weatherDesc = "Мелкий дождь";
         weatherInfo.weatherIcon = <Rain />;
@@ -29,9 +27,10 @@ class BasicInfo extends React.Component {
       case "snow":
         weatherInfo.weatherDesc = "Снег";
         weatherInfo.weatherIcon = <Rain />;
+        break;
       case "thunderstorm":
         weatherInfo.weatherDesc = "Гроза";
-        weatherInfo.weatherIcon = <Sun />;
+        weatherInfo.weatherIcon = <Storm />;
         break;
       case "сlear":
       default:        

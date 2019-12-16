@@ -2,9 +2,6 @@ import React from 'react';
 import ExtraInfoItem from '../ExtraInfoItem/ExtraInfoItem.js';
 
 class ExtraInfo extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   getWindDirection(deg) {
     let direction;

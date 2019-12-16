@@ -44,11 +44,11 @@ class App extends React.Component {
   }
 
   fetchDataByLocation() {
-    const options = {
-      enableHighAccuracy: true,
-      timeout: 3000,
-      maximumAge: 0
-    };
+    // const options = {
+    //   enableHighAccuracy: true,
+    //   timeout: 3000,
+    //   maximumAge: 0
+    // };
 
     let getPosition = function (options) {
       return new Promise(function (resolve, reject) {
@@ -106,10 +106,6 @@ class App extends React.Component {
             onMyLocationBtnClick = {this.handleMyLocationBtnClick}
           />
       </div>
-      )
-    } else if (isLoaded && code !== 200) {
-      return (
-        alert('alert')
       )
     } else {
       return (
