@@ -26,24 +26,24 @@ body {
 
   &__inner {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 20px 40px 20px;
+    overflow: auto;
+    padding: 0 0 20px 0;
 
     @include sm() {
-      padding: 7.5% 10% 12.5% 10%;
+      padding: 0 2.5% 5% 2.5%;
     }
 
     @include md() {
-      padding: 7.5% 10% 10% 10%;
+      padding: 0% 2.5% 2.5% 2.5%;
     }
 
     @include lg() {
-      padding: 75px 100px 125px 100px;
+      padding: 0 25px 50px 25px;
     }
   }
 
@@ -57,4 +57,26 @@ body {
 
 .location {
   height: 100px;
+}
+
+.settings,
+.basic-info,
+.extra-info {  
+  padding: 20px;
+
+  @include sm() {
+    padding: 7.5%;
+  }
+
+  @include md() {
+    padding: 7.5%;
+  }
+
+  @include lg() {
+    padding: 50px;
+  }
+
+  @include xl() {
+    padding: 75px;
+  }
 }

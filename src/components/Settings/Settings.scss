@@ -1,10 +1,5 @@
 .settings {
   position: relative;
-  height: 68px;
-
-  @include md() {
-    height: 100px;
-  }
 
   &__row {
     display: flex;
