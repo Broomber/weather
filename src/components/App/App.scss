@@ -32,19 +32,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     overflow: auto;
-    padding: 0 0 20px 0;
-
-    @include sm() {
-      padding: 0 2.5% 5% 2.5%;
-    }
-
-    @include md() {
-      padding: 0% 2.5% 2.5% 2.5%;
-    }
-
-    @include lg() {
-      padding: 0 25px 50px 25px;
-    }
   }
 
   ._loading {
